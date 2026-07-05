@@ -684,6 +684,19 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.querySelector(".btn1");
+
+    if (btn) {
+        btn.addEventListener("click", function () {
+            gtag('event', 'whatsapp_click', {
+                button_name: 'Get in Touch'
+            });
+        });
+    }
+});
+</script>
 
 </body>
 
