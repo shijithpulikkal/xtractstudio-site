@@ -1515,7 +1515,19 @@ var swiper = new Swiper(".mySwiper", {
   }
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.querySelector(".btn1");
 
+    if (btn) {
+        btn.addEventListener("click", function () {
+            gtag('event', 'whatsapp_click', {
+                button_name: 'Get in Touch'
+            });
+        });
+    }
+});
+</script>
 </body>
 
 </html>
