@@ -1528,29 +1528,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 </script>
-  <script>
+<script>
 document.addEventListener("click", function (e) {
 
+    // Check if the click was on an image link or title link
     const link = e.target.closest(".img-box a, .detail-box a");
 
     if (!link) return;
 
+    // Find the parent dashboard card
     const box = link.closest(".box");
 
     if (!box) return;
 
+    // Get the dashboard title
     const titleElement = box.querySelector(".detail-box h5");
     const dashboardName = titleElement
         ? titleElement.textContent.trim()
         : "Unknown Dashboard";
 
-    // GA4
-    gtag('event', 'dashboard_click', {
-        dashboard_name: dashboardName,
-        dashboard_url: link.href
-    });
+    // ---------- Google Analytics 4 ----------
+    if (window.gtag) {
+        gtag('event', 'dashboard_click', {
+            dashboard_name: dashboardName,
+            dashboard_url: link.href
+        });
+    }
 
-    // PostHog
+    // ---------- PostHog ----------
     if (window.posthog) {
         posthog.capture('dashboard_click', {
             dashboard_name: dashboardName,
@@ -1558,8 +1563,13 @@ document.addEventListener("click", function (e) {
         });
     }
 
+    // ---------- Microsoft Clarity ----------
+    if (window.clarity) {
+        clarity("event", "dashboard_click");
+    }
+
 });
-</script> 
+</script>
 </body>
 
 </html>
