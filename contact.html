@@ -427,33 +427,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 </script>
-  <script>
-document.addEventListener("click", function (e) {
-
-    // Check if the click was on an image link or title link
-    const link = e.target.closest(".img-box a, .detail-box a");
-
-    if (!link) return;
-
-    // Find the parent dashboard card
-    const box = link.closest(".box");
-
-    if (!box) return;
-
-    // Get the dashboard title
-    const titleElement = box.querySelector(".detail-box h5");
-    const dashboardName = titleElement
-        ? titleElement.textContent.trim()
-        : "Unknown Dashboard";
-
-    // Send GA4 event
-    gtag('event', 'dashboard_click', {
-        dashboard_name: dashboardName,
-        dashboard_url: link.href
-    });
-
-});
-</script>
+  
 
 </body>
 
