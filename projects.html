@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="">
+
+  <title> Projects - Xtract Studio </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <!-- nice select  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <!-- Projects gallery page styles -->
+  <style>
+    .pg_header_wrap{
+      background-color:#0a0e23;
+    }
+    .projects_gallery_section{
+      background-color:#0a0e23;
+      background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.35) 1px, transparent 1px),
+        radial-gradient(1px 1px at 25% 65%, rgba(255,255,255,0.25) 1px, transparent 1px),
+        radial-gradient(1.5px 1.5px at 40% 15%, rgba(255,255,255,0.3) 1px, transparent 1px),
+        radial-gradient(1px 1px at 60% 80%, rgba(255,255,255,0.25) 1px, transparent 1px),
+        radial-gradient(1.5px 1.5px at 80% 30%, rgba(255,255,255,0.3) 1px, transparent 1px),
+        radial-gradient(1px 1px at 92% 55%, rgba(255,255,255,0.25) 1px, transparent 1px),
+        radial-gradient(1px 1px at 15% 90%, rgba(255,255,255,0.2) 1px, transparent 1px);
+      background-repeat:no-repeat;
+      background-size:cover;
+      padding:90px 0 100px;
+    }
+    .pg_eyebrow{
+      color:#f0883e;
+      letter-spacing:2px;
+      font-weight:700;
+      font-size:13px;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+    .pg_title{
+      color:#ffffff;
+      font-weight:700;
+      font-size:44px;
+      margin-bottom:18px;
+    }
+    .pg_subtitle{
+      color:#aab2c8;
+      font-size:16px;
+      line-height:1.7;
+      max-width:640px;
+      margin-bottom:55px;
+    }
+    .pg_grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:30px;
+    }
+    .pg_card{
+      background-color:#10142c;
+      border:1px solid #1f2547;
+      border-radius:10px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .pg_card:hover{
+      transform:translateY(-6px);
+      border-color:#f0883e;
+      box-shadow:0 15px 30px rgba(0,0,0,0.35);
+    }
+    .pg_thumb{
+      height:190px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .pg_thumb img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      z-index:1;
+    }
+    .pg_thumb i{
+      font-size:56px;
+      color:rgba(255,255,255,0.9);
+      position:relative;
+      z-index:2;
+    }
+    .pg_thumb.pg_thumb--olist{
+      background:linear-gradient(135deg,#1f3a93,#00b4d8);
+    }
+    .pg_thumb.pg_thumb--fmcg{
+      background:linear-gradient(135deg,#1e7145,#4caf50);
+    }
+    .pg_thumb.pg_thumb--aws{
+      background:linear-gradient(135deg,#1a1f4d,#ff9900);
+    }
+    .pg_body{
+      padding:22px 24px 26px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+    .pg_tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:16px;
+    }
+    .pg_tag{
+      background-color:#171b3d;
+      border:1px solid #2a3162;
+      color:#7ea9e0;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+      padding:5px 10px;
+      border-radius:5px;
+    }
+    .pg_card_title{
+      color:#ffffff;
+      font-size:19px;
+      font-weight:700;
+      margin-bottom:14px;
+    }
+    .pg_card_list{
+      list-style:none;
+      margin:0;
+      padding:0;
+    }
+    .pg_card_list li{
+      color:#aeb5cc;
+      font-size:14px;
+      line-height:1.65;
+      padding-left:18px;
+      position:relative;
+      margin-bottom:12px;
+    }
+    .pg_card_list li:last-child{
+      margin-bottom:0;
+    }
+    .pg_card_list li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:8px;
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background-color:#f0883e;
+    }
+    @media (max-width:991px){
+      .pg_grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+    }
+    @media (max-width:575px){
+      .pg_grid{
+        grid-template-columns:1fr;
+      }
+      .pg_title{
+        font-size:32px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- header section starts -->
+  <div class="pg_header_wrap">
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              <img src="images/Xtract Studio-01.png" alt="Xtract Studio Logo">
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mx-auto ">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Dashboards <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="eda.html">EDA</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="projects.html">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="services.html">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>              
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+  <!-- end header section -->
+
+  <!-- projects gallery section -->
+  <section class="projects_gallery_section">
+    <div class="container">
+
+      <div class="pg_eyebrow">Work</div>
+      <h1 class="pg_title">Projects</h1>
+      <p class="pg_subtitle">
+        Explore a selection of real-world projects from my freelance career, spanning marketplace analytics, data automation, cloud ETL pipelines, and business intelligence.
+      </p>
+
+      <div class="pg_grid">
+
+        <!-- Project 1 -->
+        <div class="pg_card">
+          <div class="pg_thumb pg_thumb--olist">
+            <img src="images/Projects/Projects-01.jpg" alt="Instacart Ads Retail Media Pipeline"
+              onerror="this.style.display='none'">
+            <i class="fa fa-line-chart" aria-hidden="true"></i>
+          </div>
+          <div class="pg_body">
+            <div class="pg_tags">
+              <span class="pg_tag">PYTHON</span>
+              <span class="pg_tag">GOOGLE CLOUD</span>
+              <span class="pg_tag">BIGQUERY</span>
+              <span class="pg_tag">DATA STUDIO</span>
+            </div>
+            <h3 class="pg_card_title">Instacart Ads Retail Media Pipeline</h3>
+            <ul class="pg_card_list">
+              <li>Instacart's Ads API has no native BigQuery export — retail media performance data was trapped behind manual CSV pulls. I built 3 independent Cloud Run jobs that authenticate via OAuth2, pull campaign, keyword, and product-level performance from Instacart's async reporting API, and load it into BigQuery on a daily schedule.</li>
+              <li>Then I engineered idempotent backfill logic to auto-chunk 7+ months of historical data into monthly batches, with a shared, self-rotating OAuth token across all three jobs via Secret Manager. Outcome: fully automated daily reporting, zero manual intervention, running at $0/month on GCP's free tier, powering a live Looker Studio dashboard for a US retail media client.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="pg_card">
+          <div class="pg_thumb pg_thumb--fmcg">
+            <img src="images/Projects/Projects-02.jpg" alt="Citrus Ads Performance Analytics"
+              onerror="this.style.display='none'">
+            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+          </div>
+          <div class="pg_body">
+            <div class="pg_tags">
+              <span class="pg_tag">CITRUS ADS</span>
+              <span class="pg_tag">BIGQUERY</span>
+              <span class="pg_tag">DATA STUDIO</span>
+              <span class="pg_tag">SQL</span>
+            </div>
+            <h3 class="pg_card_title">Citrus Ads Performance Analytics</h3>
+            <ul class="pg_card_list">
+              <li>Connected directly to CitrusAd's BigQuery data warehouse using  GCP access, transforming advertising data into a reporting-ready dataset for scalable analysis.</li>
+              <li>Built an interactive Data Studio dashboard to monitor campaign performance, impressions, clicks, spend, CTR, conversions and ROAS, enabling the team to track retail media performance through a centralized reporting layer.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="pg_card">
+          <div class="pg_thumb pg_thumb--aws">
+            <img src="images/Projects/Projects-03.jpg" alt="Google Workspace Automation with Apps Script"
+              onerror="this.style.display='none'">
+            <i class="fa fa-cloud" aria-hidden="true"></i>
+          </div>
+          <div class="pg_body">
+            <div class="pg_tags">
+              <span class="pg_tag">ROUNDEL</span>
+              <span class="pg_tag">GOOGLE SHEETS</span>
+              <span class="pg_tag">DATA STUDIO</span>
+              <span class="pg_tag">AUTOMATION</span>
+            </div>
+            <h3 class="pg_card_title">Roundel Campaign Performance Dashboard</h3>
+            <ul class="pg_card_list">
+              <li>Automated the reporting workflow by processing scheduled Roundel email deliveries, extracting CSV files from ZIP attachments, and appending new campaign data into Google Sheets for centralized reporting.</li>
+              <li>Built an interactive Data Studio dashboard connected to the consolidated dataset, enabling campaign performance tracking across key metrics, trends and reporting dimensions.</li>
+            </ul>
+          </div>
+        </div>
+
+         <!-- Project 4 -->
+        <div class="pg_card">
+          <div class="pg_thumb pg_thumb--aws">
+            <img src="images/Projects/Projects-04.jpg" alt="Walmart Ads Performance Dashboard"
+              onerror="this.style.display='none'">
+            <i class="fa fa-cloud" aria-hidden="true"></i>
+          </div>
+          <div class="pg_body">
+            <div class="pg_tags">
+              <span class="pg_tag">WALMART ADS</span>
+              <span class="pg_tag">AUTOMATION</span>
+              <span class="pg_tag">GOOGLE SHEETS</span>
+              <span class="pg_tag">DATA STUDIO</span>
+            </div>
+            <h3 class="pg_card_title">Walmart Ads Performance Dashboard</h3>
+            <ul class="pg_card_list">
+              <li>Connected Walmart Ads data to Google Sheets through Supermetrics, creating an automated data pipeline with scheduled refreshes and eliminating manual data exports.</li>
+              <li>Built an interactive Data Studio dashboard to monitor campaign performance, spend, impressions, clicks, conversions and ROAS, turning continuously refreshed advertising data into actionable insights.</li>
+            </ul>
+          </div>
+        </div>
+
+        
+         <!-- Project 5 -->
+        <div class="pg_card">
+          <div class="pg_thumb pg_thumb--aws">
+            <img src="images/Projects/Projects-05.jpg" alt="Google Ads Smart Reporting & AI Video Automation"
+              onerror="this.style.display='none'">
+            <i class="fa fa-cloud" aria-hidden="true"></i>
+          </div>
+          <div class="pg_body">
+            <div class="pg_tags">
+              <span class="pg_tag">GOOGLE ADS</span>
+              <span class="pg_tag">GOOGLE SHEETS</span>
+              <span class="pg_tag">MAKE.COM</span>
+              <span class="pg_tag">AI AUTOMATION</span>
+              <span class="pg_tag">AI HEYGEN</span>
+              <span class="pg_tag">WORDPRESS</span>
+            </div>
+            <h3 class="pg_card_title">Google Ads Smart Reporting & AI Video Automation</h3>
+            <ul class="pg_card_list">
+              <li>Built a smart reporting system using the native Google Ads integration to pull campaign-level performance data into Google Sheets and automate weekly campaign summaries through Make.com.</li>
+              <li>Transformed campaign insights into AI-generated presentation videos using HeyGen, then automated the delivery workflow by publishing the completed videos to a WordPress website.</li>
+            </ul>
+          </div>
+        </div>
+
+        
+         <!-- Project 6 -->
+        <div class="pg_card">
+          <div class="pg_thumb pg_thumb--aws">
+            <img src="images/Projects/Projects-06.jpg" alt="Claude AI, Google Ads , GA4 & Automation"
+              onerror="this.style.display='none'">
+            <i class="fa fa-cloud" aria-hidden="true"></i>
+          </div>
+          <div class="pg_body">
+            <div class="pg_tags">
+              <span class="pg_tag">CLAUDE AI</span>
+              <span class="pg_tag">MCP</span>
+              <span class="pg_tag">MAKE.COM</span>
+              <span class="pg_tag">GOOGLE ADS</span>
+              <span class="pg_tag">AI AUTOMATION</span>
+              <span class="pg_tag">DATA ANALYTICS</span>
+            </div>
+            <h3 class="pg_card_title">Claude AI, Google Ads , GA4 & Automation</h3>
+            <ul class="pg_card_list">
+              <li>Connected Claude AI to a Make.com MCP server and built dynamic scenarios that automatically calculate and update date-range variables, enabling flexible period-based Google Ads analysis without manually changing scenario parameters.</li>
+              <li>Enabled conversational Google Ads & GA4 analysis through Claude, allowing campaign performance queries, Website nalysis, date-based comparisons and automated scenario execution directly from natural-language prompts.</li>
+            </ul>
+          </div>
+        </div>
+
+        
+         <!-- Project 7 -->
+        <div class="pg_card">
+          <div class="pg_thumb pg_thumb--aws">
+            <img src="images/Projects/Projects-07.jpg" alt="Automated Web Data Analytics Dashboard"
+              onerror="this.style.display='none'">
+            <i class="fa fa-cloud" aria-hidden="true"></i>
+          </div>
+          <div class="pg_body">
+            <div class="pg_tags">
+              <span class="pg_tag">APIFY</span>
+              <span class="pg_tag">WEB SCRAPING</span>
+              <span class="pg_tag">MAKE.COM</span>
+              <span class="pg_tag">DATA STUDIO</span>
+              <span class="pg_tag">AUTOMATION</span>
+            </div>
+            <h3 class="pg_card_title">Automated Web Data Analytics Dashboard</h3>
+            <ul class="pg_card_list">
+              <li>Built an automated data pipeline using Apify to collect web data and Make.com to process, transform and summarize the extracted information before storing the structured results in Google Sheets.</li>
+              <li>Developed an interactive Data Studio dashboard connected to the processed dataset, transforming continuously collected web data into visual reports, trends and actionable insights.</li>
+            </ul>
+          </div>
+        </div>
+
+        
+         <!-- Project 8 -->
+        <div class="pg_card">
+          <div class="pg_thumb pg_thumb--aws">
+            <img src="images/Projects/Projects-08.jpg" alt="GA4 Analytics Data Warehouse & Power BI"
+              onerror="this.style.display='none'">
+            <i class="fa fa-cloud" aria-hidden="true"></i>
+          </div>
+          <div class="pg_body">
+            <div class="pg_tags">
+              <span class="pg_tag">GA4</span>
+              <span class="pg_tag">BIGQUERYS</span>
+              <span class="pg_tag">SQL</span>
+              <span class="pg_tag">POWER BI</span>
+              <span class="pg_tag">DATA ENGINEERING</span>
+            </div>
+            <h3 class="pg_card_title">GA4 Analytics Data Warehouse & Power BI</h3>
+            <ul class="pg_card_list">
+              <li>Connected GA4 to BigQuery and developed structured tables and analytical views to transform raw event-level data into a clean, reporting-ready data model.</li>
+              <li>Connected the curated BigQuery dataset to Power BI and built an interactive analytics dashboard to monitor user behavior, traffic acquisition, engagement, conversions and key website performance metrics.</li>
+            </ul>
+          </div>
+        </div>
+
+        
+         <!-- Project 9 -->
+        <div class="pg_card">
+          <div class="pg_thumb pg_thumb--aws">
+            <img src="images/Projects/Projects-09.jpg" alt="PostHog Data Warehouse & Power BI Analytics"
+              onerror="this.style.display='none'">
+            <i class="fa fa-cloud" aria-hidden="true"></i>
+          </div>
+          <div class="pg_body">
+            <div class="pg_tags">
+              <span class="pg_tag">POSTHOGL</span>
+              <span class="pg_tag">BIGQUERY</span>
+              <span class="pg_tag">POWER BI</span>
+              <span class="pg_tag">PRODUCT ANALYTICS</span>
+              <span class="pg_tag">DATA ENGINEERING</span>
+            </div>
+            <h3 class="pg_card_title">PostHog Data Warehouse & Power BI Analytics</h3>
+            <ul class="pg_card_list">
+              <li>Connected PostHog to BigQuery and designed a scalable analytics data model by creating structured tables, SQL transformations and reporting views to convert raw event-level data into business-ready datasets.</li>
+              <li>Built an interactive Power BI dashboard to analyze user behavior, feature adoption, engagement trends, funnels and key product performance metrics using the curated BigQuery data warehouse.</li>
+            </ul>
+          </div>
+        </div>
+
+        
+         <!-- Project 10 -->
+        <div class="pg_card">
+          <div class="pg_thumb pg_thumb--aws">
+            <img src="images/Projects/Projects-10.jpg" alt="Superstore Analytics: SQL vs BigQuery vs Python vs DAX"
+              onerror="this.style.display='none'">
+            <i class="fa fa-cloud" aria-hidden="true"></i>
+          </div>
+          <div class="pg_body">
+            <div class="pg_tags">
+              <span class="pg_tag">SQL SERVER</span>
+              <span class="pg_tag">BIGQUERY</span>
+              <span class="pg_tag">GOOGLE COLAB</span>
+              <span class="pg_tag">PYTHON</span>
+              <span class="pg_tag">POWER BI</span>
+              <span class="pg_tag">DAX</span>
+            </div>
+            <h3 class="pg_card_title">Superstore Analytics: SQL vs BigQuery vs Python vs DAX</h3>
+            <ul class="pg_card_list">
+              <li>Used the Superstore dataset to solve 15 advanced business analytics challenges across SQL Server (SSMS), BigQuery, Google Colab/Python and Power BI DAX, covering customer behavior, sales trends, product performance, profitability and retention.</li>
+              <li>Implemented and compared analytical approaches across platforms, including running totals, MoM/YoY growth, moving averages, customer segmentation, retention, cohort analysis, RFM, Pareto analysis and market basket analysis.</li>
+            </ul>
+          </div>
+        </div>
+
+        
+         <!-- Project 11 -->
+        <div class="pg_card">
+          <div class="pg_thumb pg_thumb--aws">
+            <img src="images/Projects/Projects-11.jpg" alt="Firebase Analytics Data Warehouse & Power BI"
+              onerror="this.style.display='none'">
+            <i class="fa fa-cloud" aria-hidden="true"></i>
+          </div>
+          <div class="pg_body">
+            <div class="pg_tags">
+              <span class="pg_tag">FIREBASE</span>
+              <span class="pg_tag">BIGQUERY</span>
+              <span class="pg_tag">SQL</span>
+              <span class="pg_tag">DATA STUDIO</span>
+              <span class="pg_tag">APP ANALYTICS</span>
+              <span class="pg_tag">DATA ENGINEERING</span>
+            </div>
+            <h3 class="pg_card_title">Firebase Analytics Data Warehouse & Power BI</h3>
+            <ul class="pg_card_list">
+              <li>Connected Firebase analytics data to BigQuery and developed structured tables and SQL views to transform raw event-level data into a clean, reporting-ready analytics layer.</li>
+              <li>Built an interactive Power BI analytics dashboard to analyze app users, engagement, events, sessions, user behavior and performance trends using the curated BigQuery data model.</li>
+            </ul>
+          </div>
+        </div>
+
+        
+         <!-- Project 12 -->
+        <div class="pg_card">
+          <div class="pg_thumb pg_thumb--aws">
+            <img src="images/Projects/Projects-12.jpg" alt="GA4 Historical Data Backfill & Data Studio Analytics"
+              onerror="this.style.display='none'">
+            <i class="fa fa-cloud" aria-hidden="true"></i>
+          </div>
+          <div class="pg_body">
+            <div class="pg_tags">
+              <span class="pg_tag">GA4</span>
+              <span class="pg_tag">BIGQUERY</span>
+              <span class="pg_tag">DATA TRANSFER</span>
+              <span class="pg_tag">DATA STUDIO</span>
+            </div>
+            <h3 class="pg_card_title">GA4 Historical Data Backfill & Data Studio Analytics</h3>
+            <ul class="pg_card_list">
+              <li>Configured the Google Analytics 4 BigQuery Data Transfer Service and performed historical data backfills to recover and centralize GA4 reporting data beyond the regular transfer window.</li>
+              <li>Connected the BigQuery dataset to Data Studio and developed an interactive analytics dashboard for monitoring traffic, users, sessions, engagement, acquisition and conversion performance.</li>
+            </ul>
+          </div>
+        </div>
+
+
+        
+         <!-- Project 13-->
+        <div class="pg_card">
+          <div class="pg_thumb pg_thumb--aws">
+            <img src="images/Projects/Projects-13.jpg" alt="Website Development & Management"
+              onerror="this.style.display='none'">
+            <i class="fa fa-cloud" aria-hidden="true"></i>
+          </div>
+          <div class="pg_body">
+            <div class="pg_tags">
+              <span class="pg_tag">WORDPRESS</span>
+              <span class="pg_tag">HTML</span>
+              <span class="pg_tag">WOOCOMMERCE</span>
+              <span class="pg_tag">WEB DEVELOPMENT</span>
+            </div>
+            <h3 class="pg_card_title">Website Development & Management</h3>
+            <ul class="pg_card_list">
+              <li>Designed and developed websites using WordPress and HTML, including WooCommerce-based e-commerce functionality, responsive layouts and customized website content.</li>
+              <li>Managed end-to-end website operations including hosting, domain and email routing, content management, website maintenance and regular backup configuration.</li>
+            </ul>
+          </div>
+        </div>
+
+        
+         <!-- Project 14 -->
+        <div class="pg_card">
+          <div class="pg_thumb pg_thumb--aws">
+            <img src="images/Projects/Projects-14.jpg" alt="Google Workspace Automation with Apps Script"
+              onerror="this.style.display='none'">
+            <i class="fa fa-cloud" aria-hidden="true"></i>
+          </div>
+          <div class="pg_body">
+            <div class="pg_tags">
+              <span class="pg_tag">GOOGLE APPS SCRIPT</span>
+              <span class="pg_tag">GOOGLE SHEETS</span>
+              <span class="pg_tag">AUTOMATION</span>
+              <span class="pg_tag">GEOCODING</span>
+            </div>
+            <h3 class="pg_card_title">Google Workspace Automation with Apps Script</h3>
+            <ul class="pg_card_list">
+              <li>Developed multiple Google Apps Script automations to import and append data from external sources, process incoming files and automate repetitive Google Sheets workflows.</li>
+              <li>Developed multiple Google Apps Script automations to import and append data from external sources, process incoming files and automate repetitive Google Sheets workflows.</li>
+            </ul>
+          </div>
+        </div>
+
+      
+
+      
+         <!-- Project 15 -->
+        <div class="pg_card">
+          <div class="pg_thumb pg_thumb--aws">
+            <img src="images/Projects/Projects-15.jpg" alt="Roundel Campaign Performance Dashboard"
+              onerror="this.style.display='none'">
+            <i class="fa fa-cloud" aria-hidden="true"></i>
+          </div>
+          <div class="pg_body">
+            <div class="pg_tags">
+              <span class="pg_tag">ROUNDEL</span>
+              <span class="pg_tag">GOOGLE SHEETS</span>
+              <span class="pg_tag">DATA STUDIO</span>
+              <span class="pg_tag">AUTOMATION</span>
+            </div>
+            <h3 class="pg_card_title">Roundel Campaign Performance Dashboard</h3>
+            <ul class="pg_card_list">
+              <li>Automated the reporting workflow by processing scheduled Roundel email deliveries, extracting CSV files from ZIP attachments, and appending new campaign data into Google Sheets for centralized reporting.</li>
+              <li>Built an interactive Data Studio dashboard connected to the consolidated dataset, enabling campaign performance tracking across key metrics, trends and reporting dimensions.</li>
+            </ul>
+          </div>
+        </div>
+
+
+
+    </div>
+  </section>
+  <!-- end projects gallery section -->
+
+ <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="footer-info">
+        <p>
+          &copy; <span id="displayYear"></span> Xtract Studio - All Rights Reserved
+
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+
+  <!-- jQery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- isotope js -->
+  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <!-- custom js -->
+  <script src="js/custom.js"></script>
+
+  <script>
+    document.getElementById("displayYear").innerHTML = new Date().getFullYear();
+  </script>
+
+</body>
+
+</html>
