@@ -38,7 +38,7 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
 
-  <title> Dashboards - Xtract Studio </title>
+  <title> About - Xtract Studio </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -55,7 +55,50 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
-  
+  <style>
+    /* Force a white/light theme for this page's body sections, matching the
+       original About screenshot (the site-wide style.css otherwise defaults
+       to a dark background outside the header). Safe to remove/adjust once
+       you confirm the exact classes style.css uses for light sections. */
+    .about_section,
+    .about_stats_section {
+      background-color: #ffffff !important;
+      color: #6f7075 !important;
+    }
+    .about_section .heading_container { margin-bottom: 3rem; }
+    .about_section .heading_container h2 {
+      color: #1f2029 !important;
+      font-weight: 800;
+    }
+    .about_section .heading_container .heading_line {
+      width: 60px;
+      height: 3px;
+      background-color: #169DDD;
+      margin-top: 10px;
+    }
+    .about_section .about-img img { width: 100%; border-radius: 6px; }
+    .about_section .about-content h3 {
+      color: #1f2029 !important;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+    }
+    .about_section .about-content p.fst-italic { font-style: italic; }
+    .about_section .about-meta-list { list-style: none; padding-left: 0; margin: 1.5rem 0; }
+    .about_section .about-meta-list li { margin-bottom: 0.6rem; color: #6f7075; }
+    .about_section .about-meta-list li strong { color: #1f2029; }
+    .about_section .about-meta-list i { color: #169DDD; margin-right: 8px; }
+    .about_stats_section { padding: 40px 0 60px; }
+    .about_stats_section .stat-item { text-align: center; }
+    .about_stats_section .stat-item i { font-size: 40px; color: #169DDD; display: block; margin-bottom: 10px; }
+    .about_stats_section .stat-item h3 {
+      color: #1f2029 !important;
+      font-weight: 800;
+      font-size: 2.2rem;
+      margin-bottom: 0.2rem;
+    }
+    .about_stats_section .stat-item p { margin: 0; font-weight: 600; color: #1f2029; }
+    .about_stats_section .stat-item span { display: block; font-size: 0.85rem; color: #999; font-weight: 400; }
+  </style>
 
 </head>
 
@@ -81,6 +124,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="index.html">Dashboards <span class="sr-only">(current)</span></a>
               </li>
+              
               <li class="nav-item">
                 <a class="nav-link" href="EDA.html">EDA</a>
               </li>
@@ -90,15 +134,15 @@
               <li class="nav-item">
                 <a class="nav-link" href="services.html">Services</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-              </li>              
               <li class="nav-item active">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>
-              
+
             </ul>
-            
+
           </div>
         </nav>
       </div>
@@ -106,129 +150,106 @@
     <!-- end header section -->
   </div>
 
-  
 
-  <!-- client section -->
-<!-- Contact Section -->
-<section class="contact_section layout_padding">
-  <div class="container">
 
-    <!-- Heading -->
-    <div class="heading_container mb-5">
-      <h2>Contact</h2>
-      <div class="heading_line"></div>
+  <!-- About Section -->
+  <section class="about_section layout_padding">
+    <div class="container">
 
-      <p class="mt-4">
-        Have a dashboard, automation, or data analytics project in mind?
-        I'd be happy to discuss your requirements. We can connect via
-        Microsoft Teams, Google Meet, Slack, Zoom, Email, or WhatsApp —
-        whichever works best for you.
-      </p>
-    </div>
+      <!-- Heading -->
+      <div class="heading_container mb-5">
+        <h2>About</h2>
+        <div class="heading_line"></div>
 
-    <div class="row justify-content-center">
+        <p class="mt-4">
+          I'm a Freelance Data Analytics Consultant specializing in Business Intelligence, Dashboard Development,
+          Workflow Automation, and Data Engineering. I help businesses transform raw data into actionable insights
+          using Power BI, Data Studio, BigQuery, Python, SQL, and cloud technologies. Previously recognized as a
+          Top Rated Seller on Fiverr, I've successfully delivered 550+ analytics and dashboard projects for 390+
+          clients across 46+ countries, serving industries including e-commerce, retail, finance, healthcare,
+          logistics, SaaS, digital marketing, and manufacturing.
+        </p>
+      </div>
+      <!-- End Heading -->
 
-      <div class="col-lg-8">
+      <div class="row align-items-center">
 
-        <div class="contact-box">
+        <!-- Photo -->
+        <div class="col-lg-4 col-md-5 about-img mb-4 mb-md-0">
+          <!-- Replace this src with your profile photo, e.g. images/about-img.jpg -->
+          <img src="images/my-profile.jpg" alt="Shijith Pulikkal - Freelance Data Analytics Consultant">
+        </div>
 
-          <!-- Location -->
-         <!-- Location -->
-<div class="contact-item">
-    <div class="contact-icon social-icon">
-        <i class="fa fa-map-marker"></i>
-    </div>
+        <!-- Content -->
+        <div class="col-lg-8 col-md-7 about-content">
 
-    <div class="contact-content">
-        <h4>Location</h4>
-        <p>Nattika Beach, Thrissur, Kerala, India</p>
-    </div>
-</div>
+          <h3>Freelance Data Analytics Consultant</h3>
 
-<!-- WhatsApp -->
-<div class="contact-item">
-    <div class="contact-icon social-icon">
-        <i class="fa fa-whatsapp"></i>
-    </div>
+          <p class="fst-italic py-2">
+            I work with startups, agencies, and enterprises to build modern Business Intelligence solutions. From
+            data collection and ETL pipelines to interactive dashboards and workflow automation, I deliver scalable
+            solutions that help organizations make better decisions.
+          </p>
 
-    <div class="contact-content">
-        <h4>WhatsApp</h4>
-        <p><a href="https://wa.me/918089940471" target="_blank">+91 80899 40471</a></p>
-    </div>
-</div>
+          <p class="fst-italic py-2">
+            My expertise includes Power BI, Data Studio, Google BigQuery, SQL, Python, Google Apps Script, API
+            integrations, AI-powered workflow automation, web scraping, and cloud-based reporting solutions.
+          </p>
 
-<!-- Email -->
-<div class="contact-item">
-    <div class="contact-icon social-icon">
-        <i class="fa fa-envelope"></i>
-    </div>
+          
 
-    <div class="contact-content">
-        <h4>Email</h4>
-        <p><a href="mailto:xtractmst@gmail.com">xtractmst@gmail.com</a></p>
-    </div>
-</div>
-
-<!-- Availability -->
-<div class="contact-item">
-    <div class="contact-icon social-icon">
-        <i class="fa fa-clock-o"></i>
-    </div>
-
-    <div class="contact-content">
-        <h4>Availability</h4>
-        <p>Monday – Saturday</p>
-        <p>5:00 AM – 11:00 PM IST</p>
-    </div>
-</div>
-
-          <hr>
-
-          <h4 class="mb-4">Connect with Me</h4>
-
-          <div class="social-links">
-
-            <a href="https://shijithpulikkal.github.io/"
-               target="_blank"
-               title="Portfolio">
-              <i class="fa fa-globe"></i>
-            </a>
-
-            <a href="https://www.linkedin.com/in/shijithpulikkal/"
-               target="_blank"
-               title="LinkedIn">
-              <i class="fa fa-linkedin"></i>
-            </a>
-
-            <a href="https://www.skills.google/public_profiles/c499ecbe-ee2f-4a28-b244-1a22dd89892c"
-               target="_blank"
-               title="Google Skills">
-              <i class="fa fa-google"></i>
-            </a>
-
-            <a href="https://learn.microsoft.com/en-us/users/shijithpulikkal/"
-               target="_blank"
-               title="Microsoft Learn">
-              <i class="fa fa-windows"></i>
-            </a>
-
-            <a href="https://github.com/shijithpulikkal"
-               target="_blank"
-               title="GitHub">
-              <i class="fa fa-github"></i>
-            </a>
-
-          </div>
+          <p class="py-2">
+            Whether you need executive dashboards, marketing analytics, BigQuery data pipelines, API integrations,
+            reporting automation, or custom data solutions, I focus on building reliable, scalable systems that
+            save time and deliver measurable business value. I usually respond quickly to new inquiries, except
+            between 11:00 PM and 5:00 AM IST.
+          </p>
 
         </div>
 
       </div>
 
     </div>
+  </section>
+  <!-- end About Section -->
 
-  </div>
-</section>
-  <!-- end client section -->
+  <!-- Stats Section -->
+  <section class="about_stats_section">
+    <div class="container">
+      <div class="row gy-4">
+
+        <div class="col-lg-3 col-6 stat-item">
+          <i class="fa fa-smile-o"></i>
+          <h3>393</h3>
+          <p>Happy Clients</p>
+          <span>Top Rated Seller - Fiverr</span>
+        </div>
+
+        <div class="col-lg-3 col-6 stat-item">
+          <i class="fa fa-book"></i>
+          <h3>550</h3>
+          <p>Dashboard Projects</p>
+          <span>data-driven dashboards</span>
+        </div>
+
+        <div class="col-lg-3 col-6 stat-item">
+          <i class="fa fa-headphones"></i>
+          <h3>150</h3>
+          <p>Screenshare Assistance</p>
+          <span>updates or troubleshoots</span>
+        </div>
+
+        <div class="col-lg-3 col-6 stat-item">
+          <i class="fa fa-users"></i>
+          <h3>46</h3>
+          <p>Countries</p>
+          <span>clients across the globe</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- end Stats Section -->
 
   <!-- footer section -->
   <footer class="footer_section">
@@ -259,24 +280,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
   <!-- custom js -->
   <script src="js/custom.js"></script>
-  <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-  </script>
-  <!-- End Google Map -->
-  <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const btn = document.querySelector(".btn1");
 
-    if (btn) {
-        btn.addEventListener("click", function () {
-            gtag('event', 'whatsapp_click', {
-                button_name: 'Get in Touch'
-            });
-        });
-    }
-});
-</script>
-  
+  <script>
+    document.getElementById("displayYear").innerHTML = new Date().getFullYear();
+  </script>
 
 </body>
 

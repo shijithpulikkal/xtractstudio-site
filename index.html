@@ -83,16 +83,25 @@
             <span class=""> </span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item active">
                 <a class="nav-link" href="index.html">Dashboards <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="EDA.html">EDA</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="projects.html">Projects</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="services.html">Services</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Me</a>
+                <a class="nav-link" href="about.html">About</a>
+              </li>              
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
               </li>
 
             </ul>
@@ -182,8 +191,8 @@
 
   <!-- offer section -->
 
-  <section class="offer_section layout_padding-bottom">
-
+  <section>
+<br>
   </section>
 
   <!-- end offer section -->
@@ -198,39 +207,97 @@
         </h2>
       </div>
 
-      <!-- Instruction text under the title -->
-      <div class="gallery-instruction text-center mb-4">
-        <p class="mb-2">
-          <i class="fa fa-mouse-pointer me-2"></i>
-          Click below thumbnails to view live <strong> Google Data Studio </strong> dashboard samples
-        </p>
-        <p class="text-muted small mb-0">
-
-          <a href="https://github.com/shijithpulikkal" target="_blank" rel="noopener noreferrer">
-            <i class="fa fa-pie-chart me-1"></i> Power BI Samples</a>
-          <span class="mx-2">•</span>
-          <a href="https://github.com/shijithpulikkal" target="_blank" rel="noopener noreferrer">
-            <i class="fa fa-github me-1"></i>
-            Python Notebook Samples &rarr; available in the GitHub repository
-          </a>
-        </p>
+      <!-- Gallery type toggle -->
+      <div class="gallery-toggle text-center mb-4">
+        <button type="button" class="gallery-toggle-btn active" id="btn-pbi" data-target="panel-pbi">
+          <i class="fa fa-pie-chart me-1" aria-hidden="true"></i> Power BI
+        </button>
+        <button type="button" class="gallery-toggle-btn" id="btn-gds" data-target="panel-gds">
+          <i class="fa fa-google me-1" aria-hidden="true"></i> Google Data Studio
+        </button>
       </div>
 
-      <ul class="filters_menu">
-        <li class="active" data-filter="*">All</li>
-        <li data-filter=".amazon">Amazon</li>
-        <li data-filter=".financial">Financial</li>
-        <li data-filter=".ga4">GA4</li>
-        <li data-filter=".general">General</li>
-        <li data-filter=".googleads">Google Ads</li>
-        <li data-filter=".gsc">GSC</li>
-        <li data-filter=".marketing">Marketing</li>
-        <li data-filter=".seo">SEO</li>
-        <li data-filter=".youtube">Youtube</li>
-      </ul>
+      <style>
+        .gallery-toggle-btn{
+          display:inline-block;
+          background-color:#ffffff;
+          border:2px solid #f0883e;
+          color:#f0883e;
+          font-weight:600;
+          font-size:15px;
+          padding:10px 26px;
+          margin:0 8px 10px;
+          border-radius:30px;
+          cursor:pointer;
+          transition:all .2s ease;
+        }
+        .gallery-toggle-btn:hover{
+          background-color:#fdece0;
+        }
+        .gallery-toggle-btn.active{
+          background-color:#f0883e;
+          color:#ffffff;
+        }
+        .gallery-panel{
+          display:none;
+        }
+        .gallery-panel.active{
+          display:block;
+        }
+        .pbi-placeholder-box{
+          border:2px dashed #d7d7d7;
+          border-radius:6px;
+          background-color:#fafafa;
+          padding:50px 20px;
+          text-align:center;
+          color:#9a9a9a;
+        }
+        .pbi-placeholder-box i{
+          font-size:38px;
+          margin-bottom:14px;
+          display:block;
+          color:#f0883e;
+        }
+        .pbi-placeholder-box h5{
+          color:#7a7a7a;
+          font-size:15px;
+          margin:0;
+        }
+      </style>
 
-      <div class="filters-content">
-        <div class="row grid">
+      <!-- Google Data Studio panel -->
+      <div id="panel-gds" class="gallery-panel">
+
+        <!-- Instruction text under the title -->
+        <div class="gallery-instruction text-center mb-4">
+          <p class="mb-2">
+            <i class="fa fa-mouse-pointer me-2"></i>
+            Click below thumbnails to view live <strong> Google Data Studio </strong> dashboard samples
+          </p>
+          <p class="text-muted small mb-0">
+
+            <a href="https://github.com/shijithpulikkal" target="_blank" rel="noopener noreferrer">
+              <i class="fa fa-github me-1"></i>
+              Python Notebook Samples &rarr; available in the GitHub repository
+            </a>
+          </p>
+        </div>
+
+        <ul class="filters_menu">
+          <li class="active" data-filter="*">All</li>
+          <li data-filter=".amazon">Amazon</li>
+          <li data-filter=".financial">Financial</li>
+          <li data-filter=".ga4">GA4</li>
+          <li data-filter=".general">General</li>
+          <li data-filter=".googleads">Google Ads</li>
+          <li data-filter=".gsc">GSC</li>
+          <li data-filter=".marketing">Marketing</li>
+          <li data-filter=".seo">SEO</li>
+          <li data-filter=".youtube">Youtube</li>
+        </ul>
+
+        <div class="filters-content">
+          <div class="row grid">
           <div class="col-sm-6 col-lg-4 all amazon marketing">
             <div class="box">
               <div>
@@ -1364,7 +1431,552 @@
             </div>
           </div>
         </div>
+        </div>
+
       </div>
+      <!-- end panel-gds -->
+
+      <!-- Power BI panel (placeholders - update with real dashboards later) -->
+      <div id="panel-pbi" class="gallery-panel active">
+
+        <div class="gallery-instruction text-center mb-4">
+          <p class="mb-2">
+            <i class="fa fa-mouse-pointer me-2"></i>
+            Click below thumbnails to view live <strong> Power BI </strong> dashboard samples
+          </p>
+          <p class="text-muted small mb-0">
+            <a href="https://github.com/shijithpulikkal" target="_blank" rel="noopener noreferrer">
+              <i class="fa fa-github me-1"></i>
+              Python Notebook Samples &rarr; available in the GitHub repository
+            </a>
+          </p>
+        </div>
+
+        <ul class="filters_menu">
+          <li class="active" data-filter="*">All</li>
+          <li data-filter=".rma">Retail Media Analytics</li>
+          <li data-filter=".wma">Web & Marketing Analytics</li>
+          <li data-filter=".ca">Customer Analytics</li>
+          <li data-filter=".boa">Business Operations Analytics</li>
+          <li data-filter=".sfa">SaaS & Financial Analytics</li>
+          <li data-filter=".gsc">GSC</li>
+          <li data-filter=".marketing">Marketing</li>
+          <li data-filter=".seo">SEO</li>
+          <li data-filter=".general">General</li>
+        </ul>
+
+
+        <div class="filters-content">
+          <div class="row grid">
+          <div class="col-sm-6 col-lg-4 all rma">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://app.powerbi.com/view?r=eyJrIjoiZTEzMDg4YjItNWY4OC00ODdhLThlNDQtNzVmMjU2OWM1MjRjIiwidCI6IjEyZjRiNzA0LWU1ZDItNDBlYi1iMWFhLWNlNDk3OTRlOTdhNyJ9"
+                    target="_blank">
+                    <img src="images/powerbi/RetailMediaAdPerformance.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiZTEzMDg4YjItNWY4OC00ODdhLThlNDQtNzVmMjU2OWM1MjRjIiwidCI6IjEyZjRiNzA0LWU1ZDItNDBlYi1iMWFhLWNlNDk3OTRlOTdhNyJ9"
+                      target="_blank">
+                      ROAS Command Center
+                    </a>
+                  </h5>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all wma">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://app.powerbi.com/view?r=eyJrIjoiZWU2Mjc3ZDAtNWYxYi00NmFhLWIzNDEtZWVkOGMyNzFjN2M2IiwidCI6IjEyZjRiNzA0LWU1ZDItNDBlYi1iMWFhLWNlNDk3OTRlOTdhNyJ9"
+                    target="_blank">
+                    <img src="images/powerbi/GA41.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiZWU2Mjc3ZDAtNWYxYi00NmFhLWIzNDEtZWVkOGMyNzFjN2M2IiwidCI6IjEyZjRiNzA0LWU1ZDItNDBlYi1iMWFhLWNlNDk3OTRlOTdhNyJ9"
+                      target="_blank">
+                      GA4 Attribution & Funnel
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all ca">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://app.powerbi.com/view?r=eyJrIjoiOWU2MmI2NWItZjZjZC00MGJlLWJiMjAtNjE4MTlmYmNjZTY4IiwidCI6IjEyZjRiNzA0LWU1ZDItNDBlYi1iMWFhLWNlNDk3OTRlOTdhNyJ9" target="_blank">
+                    <img src="images/powerbi/RFM-Cohort.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiOWU2MmI2NWItZjZjZC00MGJlLWJiMjAtNjE4MTlmYmNjZTY4IiwidCI6IjEyZjRiNzA0LWU1ZDItNDBlYi1iMWFhLWNlNDk3OTRlOTdhNyJ9"
+                      target="_blank">
+                      RFM Cohort
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all boa">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://app.powerbi.com/view?r=eyJrIjoiZDQ1ZDE4YjEtODhjYy00OTFjLWE3ZTktYjFkMTlkOWJmZDIwIiwidCI6IjEyZjRiNzA0LWU1ZDItNDBlYi1iMWFhLWNlNDk3OTRlOTdhNyJ9"
+                    target="_blank">
+                    <img src="images/powerbi/Executive-Ops-Dashboard.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiZDQ1ZDE4YjEtODhjYy00OTFjLWE3ZTktYjFkMTlkOWJmZDIwIiwidCI6IjEyZjRiNzA0LWU1ZDItNDBlYi1iMWFhLWNlNDk3OTRlOTdhNyJ9"
+                      target="_blank">
+                      Executive Operations 
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all sfa">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://app.powerbi.com/reportEmbed?reportId=ce27a9cf-f5fd-4658-a701-59583df2e320&autoAuth=true&ctid=12f4b704-e5d2-40eb-b1aa-ce49794e97a7"
+                    target="_blank">
+                    <img src="images/powerbi/SaaS-RLS.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://app.powerbi.com/reportEmbed?reportId=ce27a9cf-f5fd-4658-a701-59583df2e320&autoAuth=true&ctid=12f4b704-e5d2-40eb-b1aa-ce49794e97a7"
+                      target="_blank">
+                      SaaS/RLS
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all financial marketing">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://app.powerbi.com/view?r=eyJrIjoiYTJhZWE0MjMtYjZmMS00YWM0LWI3NzAtMmE5YjYyYzI2MzYzIiwidCI6IjEyZjRiNzA0LWU1ZDItNDBlYi1iMWFhLWNlNDk3OTRlOTdhNyJ9"
+                    target="_blank">
+                    <img src="images/powerbi/Amazon.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiYTJhZWE0MjMtYjZmMS00YWM0LWI3NzAtMmE5YjYyYzI2MzYzIiwidCI6IjEyZjRiNzA0LWU1ZDItNDBlYi1iMWFhLWNlNDk3OTRlOTdhNyJ9"
+                      target="_blank">
+                      Amazon Dashboard
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all general">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://app.powerbi.com/view?r=eyJrIjoiNmUyMGRjMTUtMTYxZS00MTgxLTgwNzMtZWRiNTE1Mzk2YjMyIiwidCI6IjEyZjRiNzA0LWU1ZDItNDBlYi1iMWFhLWNlNDk3OTRlOTdhNyJ9"
+                    target="_blank">
+                    <img src="images/powerbi/Gym.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiNmUyMGRjMTUtMTYxZS00MTgxLTgwNzMtZWRiNTE1Mzk2YjMyIiwidCI6IjEyZjRiNzA0LWU1ZDItNDBlYi1iMWFhLWNlNDk3OTRlOTdhNyJ9"
+                      target="_blank">
+                      Gym
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all financial marketing">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://lookerstudio.google.com/reporting/1e67e527-77c2-4951-90a1-4a7c823970d6"
+                    target="_blank">
+                    <img src="images/powerbi/update.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://lookerstudio.google.com/reporting/1e67e527-77c2-4951-90a1-4a7c823970d6"
+                      target="_blank">
+                      Warehouse Exp Dashboard
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all financial marketing">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://lookerstudio.google.com/reporting/4ae54e98-6d9d-4ca2-8e36-210b8efeb908"
+                    target="_blank">
+                    <img src="images/powerbi/update.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://lookerstudio.google.com/reporting/4ae54e98-6d9d-4ca2-8e36-210b8efeb908"
+                      target="_blank">
+                      Funding Services
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all ga4 marketing">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://lookerstudio.google.com/reporting/6b1916e5-6f34-4356-b553-493dd7c816e5"
+                    target="_blank">
+                    <img src="images/powerbi/update.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://lookerstudio.google.com/reporting/6b1916e5-6f34-4356-b553-493dd7c816e5"
+                      target="_blank">
+                      Google Analytics
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all marketing">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://lookerstudio.google.com/reporting/226b8cf5-b69e-4929-bb37-ec7cebbc1f11"
+                    target="_blank">
+                    <img src="images/powerbi/update.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://lookerstudio.google.com/reporting/226b8cf5-b69e-4929-bb37-ec7cebbc1f11"
+                      target="_blank">
+                      mypizzahome
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all googleads marketing">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://lookerstudio.google.com/reporting/6d1d2706-20b8-4808-8acf-3b2ce0515ea3"
+                    target="_blank">
+                    <img src="images/powerbi/update.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://lookerstudio.google.com/reporting/6d1d2706-20b8-4808-8acf-3b2ce0515ea3"
+                      target="_blank">
+                      Google Ads Pro V4
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all gsc seo marketing">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://lookerstudio.google.com/reporting/0c951b0c-6f59-4cb7-9f9d-233e2155af91"
+                    target="_blank">
+                    <img src="images/powerbi/update.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://lookerstudio.google.com/reporting/0c951b0c-6f59-4cb7-9f9d-233e2155af91"
+                      target="_blank">
+                      Google Search Console Pro V1
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all marketing">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://lookerstudio.google.com/reporting/8afc006f-2347-439e-abe4-905ddd93b428"
+                    target="_blank">
+                    <img src="images/powerbi/update.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://lookerstudio.google.com/reporting/8afc006f-2347-439e-abe4-905ddd93b428"
+                      target="_blank">
+                      Leads Dashboard V3
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all financial marketing">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://lookerstudio.google.com/reporting/3b6efb5c-b025-4a10-858a-e6dafe4ef35f"
+                    target="_blank">
+                    <img src="images/powerbi/update.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://lookerstudio.google.com/reporting/3b6efb5c-b025-4a10-858a-e6dafe4ef35f"
+                      target="_blank">
+                      My Financials Dashboard
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all marketing">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://lookerstudio.google.com/reporting/7d46ba60-dcef-41ab-af64-5a0c220cbf04"
+                    target="_blank">
+                    <img src="images/powerbi/update.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://lookerstudio.google.com/reporting/7d46ba60-dcef-41ab-af64-5a0c220cbf04"
+                      target="_blank">
+                      Multiple Analytics Comparison
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all marketing">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://lookerstudio.google.com/reporting/f56a23c8-9771-46a9-833f-fda1c27e33bf"
+                    target="_blank">
+                    <img src="images/powerbi/update.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://lookerstudio.google.com/reporting/f56a23c8-9771-46a9-833f-fda1c27e33bf"
+                      target="_blank">
+                      App Installations
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all marketing">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://lookerstudio.google.com/reporting/c500253d-f05c-45fc-9756-07641e5de3d3"
+                    target="_blank">
+                    <img src="images/powerbi/update.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://lookerstudio.google.com/reporting/c500253d-f05c-45fc-9756-07641e5de3d3"
+                      target="_blank">
+                      Monthly Ad Performance V2
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all general">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://lookerstudio.google.com/reporting/c26c91fa-4533-49af-820a-96ef7c907cbf"
+                    target="_blank">
+                    <img src="images/powerbi/update.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://lookerstudio.google.com/reporting/c26c91fa-4533-49af-820a-96ef7c907cbf"
+                      target="_blank">
+                      Data Counter
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all financial marketing">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://lookerstudio.google.com/reporting/f9188bd1-f757-4078-ba71-51f7a2e9a0e0"
+                    target="_blank">
+                    <img src="images/powerbi/update.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://lookerstudio.google.com/reporting/f9188bd1-f757-4078-ba71-51f7a2e9a0e0"
+                      target="_blank">
+                      Marketing Dashboard
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all googleads marketing">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://lookerstudio.google.com/reporting/b9277ac2-33b2-476e-b3c7-bbbc94e29869"
+                    target="_blank">
+                    <img src="images/powerbi/update.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://lookerstudio.google.com/reporting/b9277ac2-33b2-476e-b3c7-bbbc94e29869"
+                      target="_blank">
+                      Monthly Ad Report V1
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all ga4 marketing">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://lookerstudio.google.com/reporting/e3b8886a-32a8-481f-a437-1a0c4680af86"
+                    target="_blank">
+                    <img src="images/powerbi/update.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://lookerstudio.google.com/reporting/e3b8886a-32a8-481f-a437-1a0c4680af86"
+                      target="_blank">
+                      Website Overview Template
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all financial marketing">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://lookerstudio.google.com/reporting/52d02a06-0d62-4d8d-8a9f-9d2767bcf1e9"
+                    target="_blank">
+                    <img src="images/powerbi/update.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://lookerstudio.google.com/reporting/52d02a06-0d62-4d8d-8a9f-9d2767bcf1e9"
+                      target="_blank">
+                      Bookings Dashboard
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all ga4 marketing">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <a href="https://lookerstudio.google.com/reporting/eb48cc04-5264-43de-9078-4b3c0dc2b119"
+                    target="_blank">
+                    <img src="images/powerbi/update.png" alt="">
+                  </a>
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    <a href="https://lookerstudio.google.com/reporting/eb48cc04-5264-43de-9078-4b3c0dc2b119"
+                      target="_blank">
+                      Conversion Report
+                    </a>
+                  </h5>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+      <!-- end panel-pbi -->
 
     </div>
   </section>
@@ -1470,6 +2082,43 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
   <!-- custom js -->
   <script src="js/custom.js"></script>
+  <!-- gallery toggle: Power BI / Google Data Studio -->
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll('.gallery-toggle-btn');
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          buttons.forEach(function (b) { b.classList.remove('active'); });
+          document.querySelectorAll('.gallery-panel').forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          var targetId = btn.getAttribute('data-target');
+          var targetPanel = document.getElementById(targetId);
+          targetPanel.classList.add('active');
+
+          // Both galleries share the same filter classes (.filters_menu / .grid),
+          // so a filter picked in one (e.g. "Youtube") can leave the other gallery
+          // filtered too and looking empty. Reset every filter menu back to "All"
+          // on every switch so both sections always start from the full view.
+          document.querySelectorAll('.filters_menu li').forEach(function (li) {
+            li.classList.remove('active');
+          });
+          document.querySelectorAll('.filters_menu li[data-filter="*"]').forEach(function (allLi) {
+            allLi.click();
+          });
+
+          // The grids use Isotope for their masonry layout. Isotope calculates
+          // positions based on the container's width, but while a panel is hidden
+          // (display:none) that width is 0, so cards can land in the wrong spot.
+          // Re-run layout now that the panel is visible.
+          if (window.jQuery && jQuery.fn.isotope) {
+            setTimeout(function () {
+              jQuery(targetPanel).find('.grid').isotope('layout');
+            }, 50);
+          }
+        });
+      });
+    })();
+  </script>
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
