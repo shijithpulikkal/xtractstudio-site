@@ -145,6 +145,31 @@
     .about_stats_section .stat-item span { display: block; font-size: 0.85rem; color: #999; font-weight: 400; }
   </style>
 
+  <style>
+    /* Profile link cards + intro video (added) */
+    .about_section .profile-links { margin: 0 -10px 2.5rem; }
+    .about_section .profile-links > div { padding: 0 10px; margin-bottom: 20px; }
+    .about_section .profile-card {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; min-height: 100px; padding: 16px 12px; height: 100%;
+      background: #ffffff; border-radius: 6px; box-shadow: 0 2px 10px rgba(0,0,0,.12);
+      color: #1f2029 !important; font-weight: 700; text-decoration: none !important;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .about_section .profile-card:hover, .about_section .profile-card:focus {
+      transform: translateY(-3px); box-shadow: 0 6px 18px rgba(22,157,221,.28); color: #169DDD !important;
+    }
+    .about_section .profile-card span { display: block; }
+    .about_section .profile-card .profile-sub { margin-top: 10px; font-size: .95rem; }
+    .about_section .intro-video { max-width: 800px; margin: 0 auto 3rem; }
+    .about_section .intro-video h2 { font-size: 1.4rem; font-weight: 700; color: #1f2029 !important; margin-bottom: 1rem; text-align: center; }
+    .about_section .intro-video .video-frame {
+      position: relative; width: 100%; padding-top: 56.25%; border-radius: 6px; overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,.15); background: #000;
+    }
+    .about_section .intro-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+  </style>
+
 </head>
 
 <body>
@@ -216,6 +241,41 @@
         </p>
       </div>
       <!-- End Heading -->
+
+      <!-- Profile Links -->
+      <div class="row profile-links">
+        <div class="col-lg-3 col-6">
+          <a class="profile-card" href="https://datastudio.google.com/u/0/reporting/a0b1bacf-2684-4562-b393-e822d9ecb8a8/page/wh5oC" target="_blank" rel="noopener noreferrer">
+            <span>Top rated Fiverr Freelancer</span>
+            <span class="profile-sub">600+ Orders</span>
+          </a>
+        </div>
+        <div class="col-lg-3 col-6">
+          <a class="profile-card" href="https://www.upwork.com/freelancers/~01da24a1d100ec3e19?mp_source=share" target="_blank" rel="noopener noreferrer">
+            <span>Upwork Profile</span>
+          </a>
+        </div>
+        <div class="col-lg-3 col-6">
+          <a class="profile-card" href="https://contra.com/shijith_pulikkal_jbb0nyao" target="_blank" rel="noopener noreferrer">
+            <span>Contra Profile</span>
+          </a>
+        </div>
+        <div class="col-lg-3 col-6">
+          <a class="profile-card" href="https://www.linkedin.com/in/shijithpulikkal/" target="_blank" rel="noopener noreferrer">
+            <span>LinkedIn Profile</span>
+          </a>
+        </div>
+      </div>
+      <!-- End Profile Links -->
+
+      <!-- Intro Video -->
+      <div class="intro-video">
+        <h2>Watch My Introduction</h2>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/oJOxQb30hfQ" title="Shijith Pulikkal - Xtract Studio introduction video" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+      <!-- End Intro Video -->
 
       <div class="row align-items-center">
 
