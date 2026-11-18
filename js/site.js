@@ -30,6 +30,49 @@
     heroLine.style.setProperty("--len", Math.ceil(heroLine.getTotalLength()));
   }
 
+  /* ---- Videos that play when scrolled into view. Browsers only allow
+     muted autoplay, so they start muted with a "Turn sound on" button.
+     Paused when scrolled away; a visitor's own pause is respected. ---- */
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("video[data-autoplay-view]").forEach(function (v) {
+    var btn = v.parentNode.querySelector(".video-sound");
+    var userPaused = false;
+    var autoPausing = false;
+    v.muted = true;
+
+    function syncButton() { if (btn) btn.hidden = !v.muted; }
+    if (btn) {
+      btn.addEventListener("click", function () {
+        v.muted = false;
+        userPaused = false;
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      });
+    }
+    v.addEventListener("volumechange", syncButton);
+    v.addEventListener("play", function () { userPaused = false; });
+    v.addEventListener("pause", function () {
+      if (autoPausing) { autoPausing = false; return; }
+      if (!v.ended) userPaused = true;
+    });
+    syncButton();
+
+    if (reduceMotion || !("IntersectionObserver" in window)) return;
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && e.intersectionRatio >= 0.5) {
+          if (!userPaused && v.paused && !v.ended) {
+            var p = v.play();
+            if (p && p.catch) p.catch(function () {});
+          }
+        } else if (!v.paused) {
+          autoPausing = true;
+          v.pause();
+        }
+      });
+    }, { threshold: [0, 0.5] }).observe(v);
+  });
+
   /* ---- Intro video: load YouTube only on click. On a local file:// preview
      YouTube refuses to play (error 153), so open it on YouTube instead. ---- */
   document.querySelectorAll("[data-yt]").forEach(function (link) {
