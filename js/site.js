@@ -319,4 +319,22 @@
         });
       });
   }
+
+  /* ---- Lead tracking: a WhatsApp, email or phone click is a lead.
+     Sends GA4 "generate_lead" with the contact method, the page and the
+     button text. Replaces the old GA4 rule that counted every /contact view. ---- */
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a[href]");
+    if (!a || typeof window.gtag !== "function") return;
+    var href = a.getAttribute("href") || "";
+    var method =
+      /^https?:\/\/(wa\.me|api\.whatsapp\.com|web\.whatsapp\.com)\//i.test(href) ? "whatsapp" :
+      /^mailto:/i.test(href) ? "email" :
+      /^tel:/i.test(href) ? "phone" : null;
+    if (!method) return;
+    window.gtag("event", "generate_lead", {
+      method: method,
+      link_text: (a.textContent || "").trim().slice(0, 100)
+    });
+  }, true);
 })();
