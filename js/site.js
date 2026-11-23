@@ -105,6 +105,13 @@
         t.tabIndex = on ? 0 : -1;
       });
       panels.forEach(function (p) { p.hidden = p.id !== id; });
+      // On narrow screens the tab bar scrolls sideways: bring the chosen tab into view
+      var bar = root.querySelector(".switch");
+      var on = root.querySelector('[role="tab"][aria-selected="true"]');
+      if (bar && on && bar.scrollWidth > bar.clientWidth) {
+        var offset = on.getBoundingClientRect().left - bar.getBoundingClientRect().left;
+        bar.scrollTo({ left: bar.scrollLeft + offset - (bar.clientWidth - on.offsetWidth) / 2, behavior: "smooth" });
+      }
     }
     tabs.forEach(function (t, i) {
       t.addEventListener("click", function () { showPanel(t.getAttribute("aria-controls")); });
