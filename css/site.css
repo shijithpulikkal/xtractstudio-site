@@ -156,6 +156,8 @@ p { margin: 0 0 1em; }
   padding: .75rem 1.25rem; border-radius: 999px; cursor: pointer; white-space: nowrap; flex-shrink: 0;
 }
 @media (max-width: 1100px) { .switch button { padding: .7rem 1rem; font-size: .92rem; } }
+/* Wider screens: wrap the tabs onto a second row instead of hiding them behind a scroll */
+@media (min-width: 640px) { .switch { flex-wrap: wrap; overflow-x: visible; border-radius: 28px; row-gap: 4px; } }
 .switch button[aria-selected="true"] { background: var(--ink); color: #fff; }
 .switch .count { font-weight: 500; opacity: .65; margin-left: .3rem; }
 
