@@ -133,6 +133,40 @@
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !xModal.hidden) closeExcel(); });
   }
 
+  /* ---- Google Sheets: big view of the dashboard with a Request access button ---- */
+  var sModal = document.getElementById("sheet-modal");
+  if (sModal) {
+    var sImg = document.getElementById("sheet-modal-img");
+    var sTitle = document.getElementById("sheet-modal-title");
+    var sReq = document.getElementById("sheet-modal-request");
+    var sClose = sModal.querySelector(".excel-modal-close");
+    var sLast = null;
+    function closeSheet() {
+      sModal.hidden = true;
+      document.body.classList.remove("modal-open");
+      sImg.removeAttribute("src");
+      if (sLast) sLast.focus();
+    }
+    document.querySelectorAll("a[data-sheet-view]").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return;
+        e.preventDefault();
+        sLast = a;
+        var t = a.querySelector(".t");
+        sTitle.textContent = t ? t.textContent : "Google Sheets dashboard";
+        sImg.src = a.href;
+        sImg.alt = sTitle.textContent + ", full view";
+        sReq.href = a.getAttribute("data-request");
+        sModal.hidden = false;
+        document.body.classList.add("modal-open");
+        sClose.focus();
+      });
+    });
+    sClose.addEventListener("click", closeSheet);
+    sModal.addEventListener("click", function (e) { if (e.target === sModal) closeSheet(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !sModal.hidden) closeSheet(); });
+  }
+
   /* ---- Work gallery: platform switch, filters, show more ---- */
   var PAGE = 12;
   document.querySelectorAll("[data-work]").forEach(function (root) {

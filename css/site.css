@@ -210,6 +210,12 @@ p { margin: 0 0 1em; }
 .excel-modal-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .excel-modal-loading { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; padding: 1rem; text-align: center; color: var(--slate); }
 body.modal-open { overflow: hidden; }
+/* Google Sheets big view */
+.sheet-modal .excel-modal-box { height: auto; max-height: 100%; }
+.sheet-modal-body { overflow: auto; background: var(--porcelain); padding: 1rem; }
+.sheet-modal-body img { display: block; width: 100%; height: auto; border-radius: var(--radius-sm); border: 1px solid var(--mist); }
+.sheet-request { padding: .55rem 1.1rem; font-size: var(--step--1); white-space: nowrap; }
+
 @media (max-width: 560px) { .excel-modal-head .text-link { display: none; } }
 
 .work-more[hidden] { display: none; }
