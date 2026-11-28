@@ -39,6 +39,7 @@
     var userPaused = false;
     var autoPausing = false;
     v.muted = true;
+    v.volume = 0.2; // sound starts at 20% when a visitor turns it on
 
     function syncButton() { if (btn) btn.hidden = !v.muted; }
     if (btn) {
