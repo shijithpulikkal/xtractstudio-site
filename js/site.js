@@ -92,6 +92,47 @@
     });
   });
 
+  /* ---- Live Excel dashboards: open the Excel for the web embed in a pop-up.
+     The workbook only loads when asked for, so the page stays fast. ---- */
+  var xModal = document.getElementById("excel-modal");
+  if (xModal) {
+    var xFrame = xModal.querySelector(".excel-modal-frame");
+    var xTitle = document.getElementById("excel-modal-title");
+    var xOpen = document.getElementById("excel-modal-open");
+    var xClose = xModal.querySelector(".excel-modal-close");
+    var xLoading = xModal.querySelector(".excel-modal-loading");
+    var xLast = null;
+    function closeExcel() {
+      xModal.hidden = true;
+      document.body.classList.remove("modal-open");
+      var f = xFrame.querySelector("iframe");
+      if (f) f.remove();
+      if (xLast) xLast.focus();
+    }
+    document.querySelectorAll("a[data-excel-embed]").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return; // let new-tab clicks through
+        e.preventDefault();
+        xLast = a;
+        var t = a.querySelector(".t");
+        xTitle.textContent = t ? t.textContent : "Excel dashboard";
+        xOpen.href = a.href;
+        xLoading.hidden = false;
+        var f = document.createElement("iframe");
+        f.src = a.getAttribute("data-excel-embed");
+        f.title = xTitle.textContent + " (interactive Excel workbook)";
+        f.addEventListener("load", function () { setTimeout(function () { xLoading.hidden = true; }, 1500); });
+        xFrame.appendChild(f);
+        xModal.hidden = false;
+        document.body.classList.add("modal-open");
+        xClose.focus();
+      });
+    });
+    xClose.addEventListener("click", closeExcel);
+    xModal.addEventListener("click", function (e) { if (e.target === xModal) closeExcel(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !xModal.hidden) closeExcel(); });
+  }
+
   /* ---- Work gallery: platform switch, filters, show more ---- */
   var PAGE = 12;
   document.querySelectorAll("[data-work]").forEach(function (root) {
